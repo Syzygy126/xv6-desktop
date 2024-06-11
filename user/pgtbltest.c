@@ -24,7 +24,6 @@ err(char *why)
   printf("pgtbltest: %s failed: %s, pid=%d\n", testname, why, getpid());
   exit(1);
 }
-
 void
 ugetpid_test()
 {
