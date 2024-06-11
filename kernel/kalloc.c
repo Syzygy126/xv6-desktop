@@ -33,7 +33,8 @@ kinit()
 void
 freerange(void *pa_start, void *pa_end)
 {
-  char *p;
+  char *p;//這邊用char* 的用意在確保指標運算的精確性，也可以確保不會因為資料類型大小不同產生的錯誤或偏移
+  //當用int* 時p++會增加一個int的大小也就是4個byte，而用char*時一次就只會增加一個by
   p = (char*)PGROUNDUP((uint64)pa_start);
   for(; p + PGSIZE <= (char*)pa_end; p += PGSIZE)
     kfree(p);
